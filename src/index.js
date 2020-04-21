@@ -1,5 +1,7 @@
 const express = require('express');
 
+require('./config/config');
+
 const app = express();
 
 // Declarando el Middlewares -> se ejecutan funciones con la cua podremos porcesar los datos, entonces antes de que cargue o lleguen las rutas, se debe decir que tipo de datos se procesaran como el .json, o el que viene de los formularios (html)
@@ -13,7 +15,9 @@ app.use(express.urlencoded( { extended : false } ) );
 app.use(require('./routes/cancion')); // el .js se obvia, con esto estamos diciendo que vamos a usar la ruta que esta en el index
 
 
+app.listen(process.env.PORT);
+// console.log('Server en el puerto 5000');
+console.log(`server en el puerto: ${process.env.PORT}`);
 
 
-app.listen(4000);
-console.log('Server en el puerto 4000');
+// console.log(process.env);

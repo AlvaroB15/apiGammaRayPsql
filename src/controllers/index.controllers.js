@@ -2,13 +2,14 @@
 
 const {Pool} = require('pg'); // Pool es un conjunto de conexiones, con lo cual nos podremos conectar a psql
 
+require('./config/config');
 
 const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
-    host: 'localhost',
-    user: 'postgres',
-    password: 'root',
-    database: 'pruebaapi',
-    port : '5432'
+    host: host_db,
+    user: user_db,
+    password: password_db,
+    database: database_db,
+    port : por_db
 });
 
 
@@ -18,6 +19,9 @@ const pool = new Pool({          // se guarda en una constante para poder reutli
 //     password: '974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7',
 //     database: 'd6a5rc5ifr3vku',
 //     port : '5432'
+
+
+//     postgres://rutrlquzrhfhkc:974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7@ec2-3-211-48-92.compute-1.amazonaws.com:5432/d6a5rc5ifr3vku
 // });
 
 // almacenaremos en funciones las peticiones que el servidor hara
