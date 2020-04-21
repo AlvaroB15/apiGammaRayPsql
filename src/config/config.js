@@ -17,10 +17,10 @@ if(process.env.NODE_ENV === "Desarrollo"){ // de forma local
 }
 else{ // de forma remota 
 
-    host_db        =       process.env.HOST;
-    user_db        =       process.env.USER;
-    password_db    =       process.env.PASSWORD;
-    database_db    =       process.env.DATABASE;
-    port_db         =       process.env.PORT_DB;
+    host_db        =       process.env.HOST_DBa;
+    user_db        =       process.env.USER_DBa;
+    password_db    =       process.env.PASSWORD_DBa;
+    database_db    =       process.env.DATABASE_DBa;
+    port_db         =       process.env.PORT_DBa;
 
 }
