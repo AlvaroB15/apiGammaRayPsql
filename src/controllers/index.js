@@ -2,29 +2,23 @@
 
 const {Pool} = require('pg'); // Pool es un conjunto de conexiones, con lo cual nos podremos conectar a psql
 
-// const connectionString = 'postgres://rutrlquzrhfhkc:974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7@ec2-3-211-48-92.compute-1.amazonaws.com:5432/d6a5rc5ifr3vku';
-
-// const pool = new Pool({
-//   connectionString: connectionString,
-// });
-
 require('../config/config');
 
-// const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
-//     host        :       host_db,
-//     user        :       user_db,
-//     password    :       password_db,
-//     database    :       database_db,
-//     port        :       port_db
-// });
-
 const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
-    host: 'ec2-3-211-48-92.compute-1.amazonaws.com',
-    user: 'rutrlquzrhfhkc',
-    password: '974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7',
-    database: 'd6a5rc5ifr3vku',
-    port : '5432'
+    host        :       host_db,
+    user        :       user_db,
+    password    :       password_db,
+    database    :       database_db,
+    port        :       port_db
 });
+
+// const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
+//     host: 'ec2-3-211-48-92.compute-1.amazonaws.com',
+//     user: 'rutrlquzrhfhkc',
+//     password: '974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7',
+//     database: 'd6a5rc5ifr3vku',
+//     port : '5432'
+// });
 
 // const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
 //     host: 'localhost',
