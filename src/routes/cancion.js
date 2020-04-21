@@ -2,7 +2,8 @@ const {Router} = require('express'); // forma de importar la funcion Router del 
 const router = Router(); // ejecutando la funcion
 
 // Importamos solo la funcion que usaremos, en este caso sera getUsers, de index.controller.js
-const { getCancion, getCancionById, createCancion ,updateCancionById } = require('../controllers/index.controllers')
+// const { getCancion, getCancionById, createCancion ,updateCancionById } = require('../controllers/index.controllers')
+const { getCancion, getCancionById } = require('../controllers/index')
 
 router.get( '/cancion', getCancion);  // aqui estamos diciendo al servidor que cuando pida get, con la ruta /users, entonces hara lo de la funcion getUsers
 
