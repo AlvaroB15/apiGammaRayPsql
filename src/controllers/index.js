@@ -2,14 +2,14 @@
 
 const {Pool} = require('pg'); // Pool es un conjunto de conexiones, con lo cual nos podremos conectar a psql
 
-require('../config/config');
+const a = require('../config/config');
 
 const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql
-    host        :       host_db,
-    user        :       user_db,
-    password    :       password_db,
-    database    :       database_db,
-    port        :       port_db
+    host        :       a.h,
+    user        :       a.u,
+    password    :       a.p,
+    database    :       a.d,
+    port        :       a.pd
 });
 
 // const pool = new Pool({          // se guarda en una constante para poder reutlizar esta conexion a psql

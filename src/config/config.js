@@ -1,4 +1,4 @@
-process.env.PORT = process.env.PORT || 4000 ;
+process.env.PORT = process.env.PORT || 3000 ;
 process.env.NODE_ENV = process.env.NODE_ENV || "Desarrollo"; 
 
 // let host_db  
@@ -26,6 +26,14 @@ else{ // de forma remota
     database_db     =       process.env.DATABASE_DBa;
     port_db         =       process.env.PORT_DBa;
 
+}
+
+module.exports = {
+    h  : host_db         ,
+    u  : user_db         ,
+    p  : password_db     ,
+    d  : database_db     ,
+    pd  : port_db         
 }
 // DATABASE_URL
 // postgres://rutrlquzrhfhkc:974a99e6d3baca1efeccc78dcdf127812ba5b80774c79af4f0358027fe5d10a7@ec2-3-211-48-92.compute-1.amazonaws.com:5432/d6a5rc5ifr3vku
