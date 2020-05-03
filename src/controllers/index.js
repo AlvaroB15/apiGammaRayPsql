@@ -49,44 +49,61 @@ const getCancionById = async (req, res) => {
     res.json(response.rows); // no es necesario poner el status(200) ya que por defecto viene eso, tmb puedo asignarle el 404,400, etc
 }
 
-// const createCancion = async (req,res) => {
-//     // id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra
+const obtenerUltimoIdAlbum = async() =>{
+    const lastAlbum = await pool.query("SELECT count(id_album) FROM album");
+    return lastAlbum;
+}
 
-//     const { id_album, nombre_cancion, letra_cancion, creacion_musica, creacion_letra } = req.body;
+const obtenerUltimoIdCancion = async() =>{
+    const lastSong = await pool.query("SELECT count(id_cancion) FROM cancion");
+    console.log(lastSong);
+    return lastSong;
+}
 
-//     const response = await pool.query("INSERT INTO cancion(id_album, nombre_cancion, letra_cancion, creacion_musica, creacion_letra) VALUES ($1 , $2, $3,$4, $5)", [id_album, nombre_cancion, letra_cancion, creacion_musica, creacion_letra])
+const createCancion = async (req,res) => {
+    // id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra
+
+    // const lastSong = obtenerUltimoIdCancion();
+    // console.log("Dentro del post");
+    // console.log(lastSong);
+    const { id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra } = req.body;
+
+    const response = await pool.query("INSERT INTO cancion(id_album, id_cancion,  nombre_cancion, letra_cancion, creacion_musica, creacion_letra) VALUES ($1, $2, $3,$4, $5, $6)", [id_album, id_cancion , nombre_cancion, letra_cancion, creacion_musica, creacion_letra]);
    
-//     console.log(response);
-//     res.send("Inserccion con exito");
-//     // res.json({
-//     //     message: 'Cancion agregada correctamente',
-//     //     body: {
-//     //         cancion : {id_album , nombre_cancion, letra_cancion, creacion_musica, creacion_letra}
-//     //     }
-//     // });
-// };
+    // console.log(response);
+    res.send("Inserccion con exito");
 
-// // todavia no se puede USAR ya q probablemente se haga dos consultas
-// // const deleteCancionById = async (req,res) =>{
-// //     const id = req.params.id_cancion;
-// //     const response = await pool.query("DElETE FROM cancion WHERE id = $1", [id]);
-// //     res.send('Eliminado correctamente.')
-// // }
+    // res.json({
+    //     message: 'Cancion agregada correctamente',
+    //     body: {
+    //         cancion : { id_album, id_cancion , nombre_cancion, letra_cancion, creacion_musica, creacion_letra }
+    //     }
+    // });
+}
 
-// const updateCancionById = async (req,res) =>{
-//     // id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra
-//     // res.send('actualizar');
-//     const id = req.params.id;
-//     const { id_album , nombre_cancion, letra_cancion, creacion_musica, creacion_letra } = req.body;
+// todavia no se puede USAR ya q probablemente se haga dos consultas
+const deleteCancionById = async (req,res) =>{
+    const id = req.params.id;
+    const response = await pool.query("DElETE FROM cancion WHERE id_cancion = $1", [id]);
+    // console.log(response);
+    res.json('Eliminado correctamente.')
+}
+
+const updateCancionById = async (req,res) =>{
+    // id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra
+    // res.send('actualizar');
+    const id = req.params.id;
+    const { id_album , nombre_cancion, letra_cancion, creacion_musica, creacion_letra } = req.body;
     
-//     const response = await pool.query("UPDATE cancion SET id_album = $1 , nombre_cancion = $2, letra_cancion = $3, creacion_musica = $4, creacion_letra = $5 WHERE id_cancion = $6", 
-//     [id_album , nombre_cancion, letra_cancion, creacion_musica, creacion_letra]);
+    const response = await pool.query("UPDATE cancion SET id_album = $1 , nombre_cancion = $2, letra_cancion = $3, creacion_musica = $4, creacion_letra = $5 WHERE id_cancion = $6", 
+    [id_album , nombre_cancion, letra_cancion, creacion_musica, creacion_letra, id]);
 
-//     console.log(response);
-//     res.send('Actualizado correctamente el registro con id: '+id_cancion);
-// };
+    res.send('Actualizado correctamente el registro con id: '+id);
+    console.log(response);
+    
+}
 
 module.exports = {
-    // getCancion, getCancionById, createCancion ,updateCancionById
-    getCancion, getCancionById
+    getCancion, getCancionById, createCancion ,updateCancionById, deleteCancionById
+    // getCancion, getCancionById
 };
