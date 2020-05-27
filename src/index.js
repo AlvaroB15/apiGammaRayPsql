@@ -13,6 +13,7 @@ app.use(express.urlencoded( { extended : false } ) );
 
 // definicion de 
 app.use(require('./routes/cancion')); // el .js se obvia, con esto estamos diciendo que vamos a usar la ruta que esta en el index
+app.use(require('./routes/album'));
 
 
 app.listen(process.env.PORT);

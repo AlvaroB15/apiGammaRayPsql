@@ -49,16 +49,16 @@ const getCancionById = async (req, res) => {
     res.json(response.rows); // no es necesario poner el status(200) ya que por defecto viene eso, tmb puedo asignarle el 404,400, etc
 }
 
-const obtenerUltimoIdAlbum = async() =>{
-    const lastAlbum = await pool.query("SELECT count(id_album) FROM album");
-    return lastAlbum;
-}
+// const obtenerUltimoIdAlbum = async() =>{
+//     const lastAlbum = await pool.query("SELECT count(id_album) FROM album");
+//     return lastAlbum;
+// }
 
-const obtenerUltimoIdCancion = async() =>{
-    const lastSong = await pool.query("SELECT count(id_cancion) FROM cancion");
-    console.log(lastSong);
-    return lastSong;
-}
+// const obtenerUltimoIdCancion = async() =>{
+//     const lastSong = await pool.query("SELECT count(id_cancion) FROM cancion");
+//     console.log(lastSong);
+//     return lastSong;
+// }
 
 const createCancion = async (req,res) => {
     // id_album, id_cancion, nombre_cancion, letra_cancion, creacion_musica, creacion_letra
