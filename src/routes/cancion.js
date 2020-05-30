@@ -2,7 +2,7 @@ const {Router} = require('express'); // forma de importar la funcion Router del 
 const router = Router(); // ejecutando la funcion
 
 // Importamos solo la funcion que usaremos, en este caso sera getUsers, de index.controller.js
-const { getCancion, getCancionById, createCancion ,updateCancionById, deleteCancionById }  = require('../controllers/cancionController')
+const { getCancion, getCancionById, createCancion ,updateCancionById, deleteCancionById, listSongOfAlbum }  = require('../controllers/cancionController')
 // const { getCancion, getCancionById } = require('../controllers/index')
 
 router.get( '/cancion', getCancion);  // aqui estamos diciendo al servidor que cuando pida get, con la ruta /users, entonces hara lo de la funcion getUsers
@@ -11,6 +11,7 @@ router.get( '/cancion/:id' , getCancionById); // le pongo el xx, solo para darme
 
 router.put('/cancion/:id', updateCancionById);
 
+router.get('/cancion/cancionDeAlbum/:id', listSongOfAlbum);
 
 // presentando fallas
 

@@ -35,7 +35,7 @@ const pool = new Pool({          // se guarda en una constante para poder reutli
 
 const getAlbum = async (req,res) => { // para que el script sql, sea sincronico, se le pone async y su query como await
     // res.send('users');
-    const response = await pool.query("SELECT * FROM album"); // como quiero que el servidor siga haciendo las demas cosas, por eso le pongo el await, ya que con eso el servidor digue haciendo las demas cosas, y cuando este prerparada el response, recien lo obtiene
+    const response = await pool.query("SELECT * FROM album ORDER BY id_album ASC"); // como quiero que el servidor siga haciendo las demas cosas, por eso le pongo el await, ya que con eso el servidor digue haciendo las demas cosas, y cuando este prerparada el response, recien lo obtiene
     res.status(200).json(response.rows); // es opcional poner el status , mas expicaso esta en el getCancionById
     
 }

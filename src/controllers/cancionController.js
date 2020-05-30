@@ -35,7 +35,7 @@ const pool = new Pool({          // se guarda en una constante para poder reutli
 
 const getCancion = async (req,res) => { // para que el script sql, sea sincronico, se le pone async y su query como await
     // res.send('users');
-    const response = await pool.query("SELECT * FROM cancion"); // como quiero que el servidor siga haciendo las demas cosas, por eso le pongo el await, ya que con eso el servidor digue haciendo las demas cosas, y cuando este prerparada el response, recien lo obtiene
+    const response = await pool.query("SELECT * FROM cancion ORDER BY id_cancion ASC"); // como quiero que el servidor siga haciendo las demas cosas, por eso le pongo el await, ya que con eso el servidor digue haciendo las demas cosas, y cuando este prerparada el response, recien lo obtiene
     res.status(200).json(response.rows); // es opcional poner el status , mas expicaso esta en el getCancionById
     
 }
@@ -47,6 +47,12 @@ const getCancionById = async (req, res) => {
     const id = req.params.id;
     const response = await pool.query("SELECT * FROM cancion WHERE id_cancion = $1", [id]); 
     res.json(response.rows); // no es necesario poner el status(200) ya que por defecto viene eso, tmb puedo asignarle el 404,400, etc
+}
+
+const listSongOfAlbum = async (req,res) => {
+    const id = req.params.id;
+    const response = await pool.query("SELECT * FROM cancion WHERE id_album = $1 ORDER BY id_cancion ASC", [id]);
+    res.json(response.rows);
 }
 
 // const obtenerUltimoIdAlbum = async() =>{
@@ -104,6 +110,6 @@ const updateCancionById = async (req,res) =>{
 }
 
 module.exports = {
-    getCancion, getCancionById, createCancion ,updateCancionById, deleteCancionById
+    getCancion, getCancionById, createCancion ,updateCancionById, deleteCancionById, listSongOfAlbum
     // getCancion, getCancionById
 };
