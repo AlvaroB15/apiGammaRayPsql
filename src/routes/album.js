@@ -18,7 +18,7 @@ router.get( '/album/:id' , getAlbumById); // le pongo el xx, solo para darme cue
 
 // router.post('/album', createAlbum);
 
-router.delete('/album/:id', deleteAlbumById);
+// router.delete('/album/:id', deleteAlbumById);
 
 
 

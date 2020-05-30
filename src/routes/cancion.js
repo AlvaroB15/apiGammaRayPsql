@@ -9,15 +9,15 @@ router.get( '/cancion', getCancion);  // aqui estamos diciendo al servidor que c
 
 router.get( '/cancion/:id' , getCancionById); // le pongo el xx, solo para darme cuenta y recordar que no necesariamente debe ser id, y eso tambien lo cambias cundo quieras hacer las respuesta para ser ejecuta al query.
 
-router.put('/cancion/:id', updateCancionById);
+// router.put('/cancion/:id', updateCancionById);
 
 router.get('/cancion/cancionDeAlbum/:id', listSongOfAlbum);
 
 // presentando fallas
 
-router.post('/cancion', createCancion);
+// router.post('/cancion', createCancion);
 
-router.delete('/cancion/:id', deleteCancionById);
+// router.delete('/cancion/:id', deleteCancionById);
 
 
 

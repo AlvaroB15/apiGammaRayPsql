@@ -16,21 +16,47 @@
 
   <body>  
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">API Gamma</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-fark">
+      <a class="navbar-brand" href="#">API Gamma</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-          <a class="nav-item nav-link" href="/cancion">Endpoint cancion</a>
-          <a class="nav-item nav-link" href="/album">Endpoint album</a>
-          <!-- <a class="nav-item nav-link" href="#">Endpoint</a> -->
-          <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-        </div>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Endpoint cancion
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/cancion">/cancion</a>
+              <a class="dropdown-item" href="/cancion/1">/cancion/:id</a>
+              <a class="dropdown-item" href="/cancion/cancionDeAlbum/1">/cancion/cancionDeAlbum/:id</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" >Los id por defecto son 1 - Relleno</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Endpoint album
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/album">/album</a>
+              <a class="dropdown-item" href="/album/1">/album/:id</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" >Los id por defecto son 1 - Relleno</a>
+            </div>
+          </li>
+        
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
       </div>
     </nav>
+
+
 
     <article>
       
@@ -47,21 +73,46 @@
 
             <p>Para el endpoint tenemos todos los metodos (get, getId, post,delet, put), pero por ahora solo estan activas las get y getId,debido a que no quiero que borren mi data xd (creanme que funcionan todas xd) </p>
 
-            <p></p>
+            <p>Tenemos por ejemplo: </p>
+
+            <p>Estan estan habilitadas, ya que solo piden xd, por ahora, luego que pueda hacer mi copia de seguriadad completa con postgresql, dejare todo abierto</p>
+
+            <code>router.get( '/cancion', getCancion);</code> <br>
+            <code>router.get( '/cancion/:id' , getCancionById);</code> <br>
+            <code>router.get('/cancion/cancionDeAlbum/:id', listSongOfAlbum);</code> <br>
+
+            <p>Estas estan desactivadas, pero si funcionan correctamente, creanme we xd</p>
+
+            <code>router.put('/cancion/:id', updateCancionById);</code> <br>
+            <code>router.post('/cancion', createCancion);</code> <br>
+            <code>router.delete('/cancion/:id', deleteCancionById);</code> <br>
 
             <h2>Endpoint '/album/'</h2>
 
             <p>Al igual que el Endpoint cancion, tenemos todos los metodos (get, getId, post,delet, put), pero por ahora solo estan activas las get y getId,debido a que no quiero que borren mi data xd (creanme que funcionan todas xd) </p>
 
+            <p>Al igual que cancion, solo se esta permitiendo los get xd</p>
+
+            <code>router.get( '/album', getAlbum);</code> <br>
+            <code>router.get( '/album/:id' , getAlbumById);</code> <br> 
+
+            <p>Estas estan desactivadas, pero si funcionan correctamente, creanme we xd</p>
+
+            <code>router.put('/album/:id', updateAlbumById);</code> <br>
+            <code>router.post('/album', createAlbum);</code> <br>
+            <code>router.delete('/album/:id', deleteAlbumById);</code> <br>
+
             <p>Por ahora no esta implementado el JWT, pero pienso hacerlo, ya lo tengo como asunto a realizar</p>
+            <p>PD: Solo he llenado los 3 primeros albums xd, son 10 albums ya que son los oficiales, luego agregare los conciertos albums, y las remasterizaciones, lo bueno es que pude conseguir los recursos de archivos, musica, fotos, de una web que no se si queria dejarlos visibles o que lo hicieron mal, y tuve la suerte de poder usarlos xd </p>
+
         </div>
 
       </div>
 
     </article>
 
-    <footer class="text-center pt-5">
-        Derechos Reservados a GammaRay  
+    <footer class="text-center pt-5 pb-4">
+        Derechos Reservados a GammaRay y Alvaro Begazo Carhuayo xd 
     </footer>
 
 
