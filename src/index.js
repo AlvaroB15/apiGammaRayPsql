@@ -15,8 +15,11 @@ app.use(express.urlencoded( { extended : false } ) );
 
 // definicion de 
 
+// Para que no salga el problema de CROS de youtube
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://gamma-angular.web.app"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200/album");
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
