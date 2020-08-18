@@ -23,8 +23,9 @@ app.use(function(req, res, next) {
     
     // res.header("Access-Control-Allow-Origin", "http://localhost:4200/album");
     
-    //res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header("Access-Control-Allow-Origin", "https://demoqr-9aed0.web.app/generateQr");
+    // res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+    // res.header("Access-Control-Allow-Origin", "https://demoqr-9aed0.web.app/generateQr");
+    res.header("Access-Control-Allow-Origin", "https://demoqr-9aed0.web.app")
 
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
